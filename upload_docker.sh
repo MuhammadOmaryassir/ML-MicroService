@@ -1,15 +1,20 @@
+  
 #!/usr/bin/env bash
-# This file tags and uploads an image to Docker Hub
+# This tags and uploads an image to Docker Hub
 
-# Assumes that an image is built via `run_docker.sh`
+# Assumes that an image is built in `run_docker.sh`
 
 # Step 1:
-# Create dockerpath
+# Create your own docker ID here
 # dockerpath=<your docker ID/path>
+dockerpath="omaroovee/ml-service"
 
 # Step 2:  
-# Authenticate & tag
+# Authenticate & Tag
 echo "Docker ID and Image: $dockerpath"
+docker login &&\
+    docker image tag ml-service $dockerpath
 
 # Step 3:
-# Push image to a docker repository
+# Push Image
+docker image push $dockerpath

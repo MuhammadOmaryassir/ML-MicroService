@@ -9,10 +9,10 @@ dockerpath="omaroovee/ml-service"
 
 # Step 2
 # Run a Docker Hub container with kubernetes
-kubectl run ml-service-demo\
+kubectl run ml-service\
     --generator=run-pod/v1\
     --image=$dockerpath\
-    --port=80 --labels app=ml-service-demo
+    --port=80 --labels app=ml-service
 
 
 # Step 3:
@@ -21,4 +21,4 @@ kubectl get pods
 
 # Step 4:
 # Forward the container port to host
-kubectl port-forward ml-service-demo 8000:80
+kubectl port-forward ml-service 8000:80
